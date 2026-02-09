@@ -1,0 +1,29 @@
+.container {
+  width: 100%;
+  max-width: 1920px;
+  margin: 0 auto;
+  padding: 0 160px;
+
+  @include onSmallDesktop {
+    padding: 0 50px;
+  }
+  @include onLargeTablet {
+    padding: 0 40px;
+  }
+  @include onSmallTablet {
+    padding: 0 30px;
+  }
+}
+
+.df {
+  display: flex;
+}
+.align-c {
+  align-items: center;
+}
+.justify-sb {
+  justify-content: space-between;
+}
+.hidden {
+  display: none;
+}

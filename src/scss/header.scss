@@ -1,0 +1,127 @@
+.header {
+  padding: 30px 0;
+  background-color: $white;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.02);
+
+  &-wrapper {
+    // Основной контейнер уже имеет классы df, align-c, justify-sb в HTML
+    // Но мы можем продублировать важные моменты здесь для надежности
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+}
+
+.logo {
+  display: block;
+  img {
+    width: 190px; // Размер из макета
+    height: auto;
+    display: block;
+  }
+}
+
+.nav {
+  ul {
+    display: flex;
+    gap: 30px;
+    list-style: none;
+
+    li a {
+      font-family: $font-main;
+      font-weight: 700;
+      font-size: 20px;
+      color: $text-color;
+      text-decoration: none;
+      transition: color 0.3s ease;
+
+      &:hover {
+        color: $accent-green;
+      }
+    }
+  }
+
+  // Адаптивное меню (Урок 3)
+  @include onLargeTablet {
+    display: none; // Скрываем на планшетах/телефонах
+
+    &.visible {
+      display: block;
+      position: absolute;
+      top: 100%; // Сразу под хедером
+      left: 0;
+      width: 100%;
+      background-color: $white;
+      padding: 30px;
+      border-top: 1px solid #eee;
+      box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+
+      ul {
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+      }
+    }
+  }
+}
+
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+
+  .cart {
+    background: #f9f8f8;
+    border: 1px solid #e0e0e0;
+    padding: 5px 20px 5px 5px; // Меньше отступ слева, так как там круглая иконка
+    border-radius: 33px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    cursor: pointer;
+
+    .cart-icon img {
+      width: 26px;
+      height: 26px;
+      display: block;
+    }
+
+    span {
+      font-family: $font-main;
+      font-weight: 700;
+      font-size: 18px;
+      color: $text-color;
+    }
+  }
+}
+
+.burger {
+  display: none; // По умолчанию скрыт
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 5px;
+
+  img {
+    width: 32px;
+    height: 32px;
+  }
+
+  @include onLargeTablet {
+    display: block; // Показываем только на мобильных
+  }
+
+  // Стили для переключения иконок
+  img.hidden {
+    display: none !important;
+  }
+}
+
+// Стили для поиска (Search Bar), если захотите его наполнить
+.search-bar {
+  position: relative;
+  // Добавим стили позже, когда вставите input в HTML
+}

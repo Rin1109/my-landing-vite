@@ -1,13 +1,60 @@
 <!doctype html>
-<html lang="en">
+<html lang="uk">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>my-landing-vite</title>
+    <title>Organic Food - Landing Page</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700;900&family=Yellowtail&display=swap"
+      rel="stylesheet"
+    />
   </head>
   <body>
-    <div id="app"></div>
-    <script type="module" src="/src/main.js"></script>
+    <header class="header">
+      <div class="container">
+        <div class="header-wrapper df align-c justify-sb">
+          <a href="/" class="logo">
+            <img src="/assets/images/logo.webp" alt="Organic Logo" />
+          </a>
+
+          <nav class="nav">
+            <ul class="df">
+              <li><a href="#">Home</a></li>
+              <li><a href="#">About</a></li>
+              <li><a href="#">Pages</a></li>
+              <li><a href="#">Shop</a></li>
+              <li><a href="#">Projects</a></li>
+              <li><a href="#">News</a></li>
+            </ul>
+          </nav>
+
+          <div class="header-actions df align-c">
+            <div class="search-bar"></div>
+            <div class="cart df align-c">
+              <div class="cart-icon">
+                <img src="/assets/images/cart-icon.svg" alt="Cart" />
+              </div>
+              <span>Cart (0)</span>
+            </div>
+
+            <button class="burger" id="burgerBtn">
+              <img src="/assets/images/burger-icon.svg" alt="Menu" />
+              <img
+                src="/assets/images/cross-icon.svg"
+                alt="Close"
+                class="hidden"
+              />
+            </button>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main></main>
+
+    <script type="module" src="/src/js/app.js"></script>
   </body>
 </html>
