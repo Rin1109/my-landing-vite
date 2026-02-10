@@ -21,3 +21,5 @@ if (burgerBtn && navMenu) {
     document.body.classList.toggle("no-scroll");
   });
 }
+
+import "@fortawesome/fontawesome-free/css/all.min.css";

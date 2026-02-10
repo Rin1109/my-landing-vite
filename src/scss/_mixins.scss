@@ -1,17 +1,30 @@
-@mixin onSmallDesktop {
+// Миксины для адаптивности (медиа-запросы)
+@mixin onLargeDesktop {
   @media (max-width: 1200px) {
     @content;
   }
 }
 
-@mixin onLargeTablet {
+@mixin onSmallDesktop {
   @media (max-width: 980px) {
     @content;
   }
 }
 
+@mixin onLargeTablet {
+  @media (max-width: 768px) {
+    @content;
+  }
+}
+
 @mixin onSmallTablet {
-  @media (max-width: 540px) {
+  @media (max-width: 640px) {
+    @content;
+  }
+}
+
+@mixin onMobile {
+  @media (max-width: 480px) {
     @content;
   }
 }

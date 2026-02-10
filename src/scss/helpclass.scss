@@ -18,37 +18,70 @@
 .df {
   display: flex;
 }
-.align-c {
-  align-items: center;
-}
-.justify-sb {
-  justify-content: space-between;
-}
-.hidden {
-  display: none;
-}
-
-.df {
-  display: flex;
-}
 .flex-column {
   flex-direction: column;
 }
 .justify-c {
   justify-content: center;
 }
+.justify-sb {
+  justify-content: space-between;
+}
 .align-c {
   align-items: center;
 }
+.hidden {
+  display: none;
+}
+
 .yellowtail-text {
-  font-family: "Yellowtail", cursive;
+  font-family: $font-accent; // Используем переменную
+  color: $accent-green; // Обычно этот шрифт в макете зеленый
+  font-size: 36px;
 }
-.green-text {
-  color: var(--green);
-} // Змінні в _variables
-.sec-subtitle {
-  font-size: clamp(18px, 4vw, 36px);
+
+// Универсальный класс для вертикальных отступов секций (из урока)
+.vertical-paddings {
+  padding: 140px 0;
+
+  @include onSmallDesktop {
+    padding: 100px 0;
+  }
+  @include onMobile {
+    padding: 60px 0;
+  }
 }
-.call-to-action-link {
-  /* З page 22 */
+
+// Стили кнопки (Call to Action)
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 24px 35px;
+  border-radius: 16px;
+  font-weight: 700;
+  font-family: $font-main;
+  text-decoration: none;
+  transition: all 0.3s ease;
+
+  &--yellow {
+    background-color: $text-color; // В Organic Food кнопки часто темно-синие
+    color: $white;
+
+    // Если кнопка должна быть именно желтой по заданию:
+    // background-color: $accent-yellow;
+    // color: $text-color;
+  }
+
+  i {
+    font-size: 19px;
+    transition: transform 0.3s ease;
+  }
+
+  &:hover {
+    opacity: 0.9;
+    i {
+      transform: translateX(5px); // Иконка двигается вправо
+    }
+  }
 }
