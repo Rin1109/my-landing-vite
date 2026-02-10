@@ -27,3 +27,28 @@
 .hidden {
   display: none;
 }
+
+.df {
+  display: flex;
+}
+.flex-column {
+  flex-direction: column;
+}
+.justify-c {
+  justify-content: center;
+}
+.align-c {
+  align-items: center;
+}
+.yellowtail-text {
+  font-family: "Yellowtail", cursive;
+}
+.green-text {
+  color: var(--green);
+} // Змінні в _variables
+.sec-subtitle {
+  font-size: clamp(18px, 4vw, 36px);
+}
+.call-to-action-link {
+  /* З page 22 */
+}

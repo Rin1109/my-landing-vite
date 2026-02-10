@@ -1,0 +1,61 @@
+@import "variables"; // Не забывай импортировать переменные
+
+.sec-1 {
+  background: url("/assets/images/sec-1-bg.webp") no-repeat center center /
+    cover;
+  min-height: 80vh;
+  display: flex;
+  align-items: center; // Центрируем по вертикали
+
+  &__content {
+    max-width: 530px; // Нюанс: ограничиваем ширину текста, чтобы он не растягивался на весь экран
+
+    h1 {
+      color: $text-color;
+      font-family: $font-main;
+      font-size: 50px; // Примерно, как в макете
+      margin: 10px 0 25px;
+    }
+
+    .yellowtail-text {
+      color: $accent-green;
+      font-family: $font-accent;
+      font-size: 28px;
+    }
+  }
+}
+
+.sec-2 {
+  padding: 100px 0; // Вертикальные отступы из урока
+
+  &__banner-wrapper {
+    display: flex;
+    gap: 30px; // Расстояние между баннерами
+  }
+
+  &__banner {
+    flex: 1; // Равномерно распределяем место
+    aspect-ratio: 1 / 0.45; // Пропорция как в дизайне
+    border-radius: 20px;
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-size: cover;
+
+    &--1 {
+      background-image: url("/assets/images/sec-2-banner-1.webp");
+      color: $white; // Если фон темный
+    }
+
+    &--2 {
+      background-image: url("/assets/images/sec-2-banner-2.webp");
+      color: $text-color;
+    }
+
+    h3 {
+      font-size: 30px;
+      max-width: 200px; // Чтобы заголовок переносился красиво
+    }
+  }
+}
