@@ -1,12 +1,58 @@
+/* Основная сетка секции */
 .products__grid {
   display: grid;
-  /* Автоматические колонки: минимум 280px, максимум 1 часть свободного места */
+  /* Адаптивная сетка: колонки минимум 280px */
   grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-  gap: 30px; /* Отступы между карточками */
-  margin-bottom: 40px;
+  gap: 30px;
+  margin-bottom: 50px;
 }
 
-/* Скрываем лишние карточки по умолчанию через класс */
-.product-card.is-hidden {
-  display: none;
+/* Стили самой карточки как Grid-контейнера */
+.product-card {
+  display: grid;
+  /* 1-я строка: картинка, 2-я: название, 3-я: цена, 4-я: кнопка */
+  grid-template-rows: auto 1fr auto auto;
+  gap: 15px;
+  padding: 20px;
+  border: 1px solid #e0e0e0;
+  border-radius: 10px;
+  background-color: #fff;
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  }
+
+  &__image {
+    height: 200px; // Фиксируем высоту контейнера для фото
+    overflow: hidden;
+    border-radius: 5px;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover; // Фото заполнит область без растяжения
+    }
+  }
+
+  &__title {
+    font-size: 1.2rem;
+    color: #333;
+    margin: 0;
+  }
+
+  &__price {
+    font-weight: bold;
+    font-size: 1.1rem;
+    color: #2c3e50;
+    margin: 0;
+  }
+
+  /* Класс для скрытия (важно для JS) */
+  &.is-hidden {
+    display: none;
+  }
 }
