@@ -1,0 +1,12 @@
+.products__grid {
+  display: grid;
+  /* Автоматические колонки: минимум 280px, максимум 1 часть свободного места */
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 30px; /* Отступы между карточками */
+  margin-bottom: 40px;
+}
+
+/* Скрываем лишние карточки по умолчанию через класс */
+.product-card.is-hidden {
+  display: none;
+}
