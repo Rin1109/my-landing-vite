@@ -56,17 +56,18 @@ if (loadMoreBtn && productsContainer) {
       }
     } else {
       // ЛОГИКА СКРЫТИЯ ОБРАТНО
-      allCards.forEach((card, index) => {
-        // Оставляем первые 4 видимыми, остальным возвращаем класс is-hidden
-        if (index >= 4) {
-          card.classList.add("is-hidden");
-        }
-      });
-
-      loadMoreBtn.textContent = "Show more";
-
-      // Плавный скролл вверх к началу секции, чтобы не потерять контент
+      // 1. Сначала плавно скроллим вверх к началу секции
       productsContainer.scrollIntoView({ behavior: "smooth" });
+
+      // 2. Ждем немного (пока идет скролл), а потом скрываем карточки
+      setTimeout(() => {
+        allCards.forEach((card, index) => {
+          if (index >= 4) {
+            card.classList.add("is-hidden");
+          }
+        });
+        loadMoreBtn.textContent = "Show more";
+      }, 400); // 400мс — это время, пока глаз следит за скроллом
     }
   });
 }
