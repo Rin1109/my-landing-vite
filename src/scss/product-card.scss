@@ -7,6 +7,18 @@
   margin-bottom: 50px;
 }
 
+// Описываем саму анимацию
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px); // Карточка чуть "подпрыгнет" снизу
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 /* Стили самой карточки как Grid-контейнера */
 .product-card {
   display: grid;
@@ -49,6 +61,14 @@
     font-size: 1.1rem;
     color: #2c3e50;
     margin: 0;
+  }
+
+  // Твои существующие стили...
+  transition: all 0.3s ease; // Для плавного наведения (hover)
+
+  // Когда класс is-hidden удаляется, анимация срабатывает на новых карточках
+  &:not(.is-hidden) {
+    animation: fadeIn 0.5s ease forwards;
   }
 
   /* Класс для скрытия (важно для JS) */
