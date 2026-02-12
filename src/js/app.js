@@ -23,3 +23,50 @@ if (burgerBtn && navMenu) {
 }
 
 import "@fortawesome/fontawesome-free/css/all.min.css";
+
+const loadMoreBtn = document.querySelector("#load-more");
+// Получаем только те карточки, которые изначально скрыты
+const productsContainer = document.querySelector("#products-container");
+
+if (loadMoreBtn && productsContainer) {
+  loadMoreBtn.addEventListener("click", () => {
+    // Получаем все карточки как массив
+    const allCards = Array.from(
+      productsContainer.querySelectorAll(".product-card"),
+    );
+
+    // Проверяем текст кнопки
+    if (loadMoreBtn.textContent === "Show more") {
+      // ЛОГИКА ОТКРЫТИЯ
+      const hiddenCards = productsContainer.querySelectorAll(
+        ".product-card.is-hidden",
+      );
+      const cardsToOpen = 4;
+
+      for (let i = 0; i < cardsToOpen && i < hiddenCards.length; i++) {
+        hiddenCards[i].classList.remove("is-hidden");
+      }
+
+      // Если больше скрытых нет — меняем на "Hide cards"
+      const remainingHidden = productsContainer.querySelectorAll(
+        ".product-card.is-hidden",
+      );
+      if (remainingHidden.length === 0) {
+        loadMoreBtn.textContent = "Hide cards";
+      }
+    } else {
+      // ЛОГИКА СКРЫТИЯ ОБРАТНО
+      allCards.forEach((card, index) => {
+        // Оставляем первые 4 видимыми, остальным возвращаем класс is-hidden
+        if (index >= 4) {
+          card.classList.add("is-hidden");
+        }
+      });
+
+      loadMoreBtn.textContent = "Show more";
+
+      // Плавный скролл вверх к началу секции, чтобы не потерять контент
+      productsContainer.scrollIntoView({ behavior: "smooth" });
+    }
+  });
+}
