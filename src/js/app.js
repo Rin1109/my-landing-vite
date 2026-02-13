@@ -1,7 +1,14 @@
+// ВСЕ ИМПОРТЫ ВВЕРХУ
 // 1. Импорт стилей (Обязательно для Vite, чтобы он видел SCSS)
 import "../scss/main.scss";
+import "@fortawesome/fontawesome-free/css/all.min.css";
+import Swiper from "swiper";
+import { Navigation, Pagination } from "swiper/modules";
+import "swiper/css";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
 
-// 2. Логика бургер-меню
+// --- Логика бургер-меню ---
 const burgerBtn = document.querySelector("#burgerBtn");
 const navMenu = document.querySelector(".nav");
 
@@ -22,8 +29,7 @@ if (burgerBtn && navMenu) {
   });
 }
 
-import "@fortawesome/fontawesome-free/css/all.min.css";
-
+// --- Логика "Show more" ---
 const loadMoreBtn = document.querySelector("#load-more");
 // Получаем только те карточки, которые изначально скрыты
 const productsContainer = document.querySelector("#products-container");
@@ -71,3 +77,13 @@ if (loadMoreBtn && productsContainer) {
     }
   });
 }
+
+// --- Инициализация Swiper ---
+const swiper = new Swiper(".sec5-cards", {
+  modules: [Navigation, Pagination],
+  loop: true,
+  pagination: {
+    el: ".swiper-pagination",
+    clickable: true,
+  },
+});
