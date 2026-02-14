@@ -80,10 +80,20 @@ if (loadMoreBtn && productsContainer) {
 
 // --- Инициализация Swiper ---
 const swiper = new Swiper(".sec5-cards", {
+  // Указываем модули, которые будем использовать
   modules: [Navigation, Pagination],
-  loop: true,
+  // Основные настройки
+  loop: true, // Зацикливание (после последнего слайда идет первый)
+  spaceBetween: 30, // Расстояние между слайдами в пикселях
+  slidesPerView: 1, // Сколько слайдов показывать одновременно
+  // Настройка точек (пагинации)
   pagination: {
     el: ".swiper-pagination",
     clickable: true,
+  },
+  // Настройка стрелок (если решите их добавить в HTML)
+  navigation: {
+    nextEl: ".swiper-button-next",
+    prevEl: ".swiper-button-prev",
   },
 });
