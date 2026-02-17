@@ -21,17 +21,32 @@
 
 /* Стили самой карточки как Grid-контейнера */
 .product-card {
+  position: relative; // ВАЖНО: Тема урока! Теперь это точка отсчета для абсолютных элементов
   display: grid;
   /* 1-я строка: картинка, 2-я: название, 3-я: цена, 4-я: кнопка */
   grid-template-rows: auto 1fr auto auto;
   gap: 15px;
-  padding: 20px;
+  padding: 30px 20px; // Немного увеличим отступы, как в макете
   border: 1px solid #e0e0e0;
-  border-radius: 10px;
-  background-color: #fff;
+  border-radius: 30px; // В макете Organick обычно скругление больше
+  background-color: #f9f8f8; // Цвет фона из материалов курса
   transition:
     transform 0.3s ease,
     box-shadow 0.3s ease;
+
+  // Стили для плашки (Tag) - ЦЕНТРАЛЬНАЯ ТЕМА УРОКА
+  .product-tag {
+    position: absolute; // Вырываем из потока
+    top: 20px; // Отступ от верхнего края карточки
+    left: 20px; // Отступ от левого края карточки
+    background-color: #274c5b; // Темно-зеленый из палитры
+    color: #ffffff;
+    padding: 6px 12px;
+    border-radius: 8px;
+    font-size: 15px;
+    font-weight: 600;
+    z-index: 2; // Чтобы плашка была точно выше картинки
+  }
 
   &:hover {
     transform: translateY(-5px);
@@ -39,14 +54,14 @@
   }
 
   &__image {
-    height: 200px; // Фиксируем высоту контейнера для фото
+    height: 250px; // Чуть увеличим для соответствия макету
     overflow: hidden;
     border-radius: 5px;
 
     img {
       width: 100%;
       height: 100%;
-      object-fit: cover; // Фото заполнит область без растяжения
+      object-fit: contain; // Для продуктов лучше contain, чтобы не обрезать их
     }
   }
 
@@ -56,11 +71,33 @@
     margin: 0;
   }
 
+  // Стили для цен (переиспользование)
+  .product-prices {
+    .old-price {
+      text-decoration: line-through;
+      color: #b8b8b8;
+      font-size: 15px;
+      margin-right: 8px;
+    }
+    .current-price {
+      color: #274c5b;
+      font-weight: 700;
+      font-size: 18px;
+    }
+  }
+
   &__price {
     font-weight: bold;
     font-size: 1.1rem;
     color: #2c3e50;
     margin: 0;
+  }
+
+  /* Линия разделитель */
+  &__divider {
+    border: none;
+    border-top: 1px solid #e0e0e0;
+    margin: 10px 0;
   }
 
   // Твои существующие стили...
@@ -74,5 +111,17 @@
   /* Класс для скрытия (важно для JS) */
   &.is-hidden {
     display: none;
+  }
+}
+
+// Твоя анимация остается без изменений
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
