@@ -59,3 +59,114 @@
     }
   }
 }
+
+.sec-7 {
+  .sec-7-banner {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    padding: 80px 0;
+  }
+
+  .sec-7-img {
+    width: 48%;
+    border-radius: 18px;
+    object-fit: cover;
+    box-shadow: 0 12px 40px rgba(39, 76, 91, 0.08);
+  }
+
+  .sec-7-content {
+    width: 52%;
+    padding: 42px 44px;
+    border-radius: 18px;
+    background-color: $white;
+    box-shadow: 0 10px 30px rgba(39, 76, 91, 0.06);
+
+    .yellowtail-text {
+      display: inline-block;
+      margin-bottom: 10px;
+      color: $accent-green;
+      font-size: 26px;
+    }
+
+    h2 {
+      margin: 6px 0 24px 0;
+      color: $text-color;
+      font-size: 32px;
+    }
+
+    .sec-7-features {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 18px 24px;
+      margin-bottom: 22px;
+
+      .sec-7-item {
+        display: flex;
+        gap: 18px;
+        align-items: flex-start;
+
+        &__icon {
+          min-width: 44px;
+          height: 44px;
+          border-radius: 50%;
+          background: linear-gradient(135deg, $accent-green 0%, #5b9d72 100%);
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          color: $white;
+          font-weight: 700;
+          box-shadow: 0 6px 18px rgba(39, 76, 91, 0.08);
+        }
+
+        &__content {
+          h4 {
+            margin: 0 0 6px 0;
+            font-size: 18px;
+            color: $text-color;
+          }
+
+          p {
+            margin: 0;
+            color: darken($text-color, 8%);
+            line-height: 1.35;
+            font-size: 15px;
+            opacity: 0.95;
+          }
+        }
+      }
+    }
+
+    .sec-7-cta {
+      display: inline-block;
+      margin-top: 8px;
+      background: $accent-green;
+      color: $white;
+      padding: 12px 20px;
+      border-radius: 10px;
+      text-decoration: none;
+      font-weight: 700;
+      box-shadow: 0 8px 20px rgba(39, 76, 91, 0.08);
+    }
+  }
+
+  @media (max-width: 900px) {
+    .sec-7-banner {
+      flex-direction: column-reverse;
+      gap: 24px;
+    }
+
+    .sec-7-img,
+    .sec-7-content {
+      width: 100%;
+      padding: 28px;
+      border-radius: 14px;
+    }
+
+    .sec-7-content {
+      .sec-7-features {
+        gap: 14px;
+      }
+    }
+  }
+}
